@@ -1,0 +1,21 @@
+function filtrarNomes(){
+    let nomes:string[]=[]
+    let nome:string
+    for(let i=0; i<4; i++){
+        nome=String(prompt('digite quatro nomes')!)
+        nomes.push(nome)
+    }
+    let nomesComQuatroletras=nomes.filter(n=> n.length==4)
+    alert("nomes com quatro letras: " + nomesComQuatroletras);
+    let removerNome:string;
+    removerNome = String(prompt('digite o nome que deseja remover')!)
+    let indice = nomes.indexOf(removerNome);
+    if(indice != -1){
+        nomes.splice(indice,1)
+        alert("nome removido com sucesso")
+    } else{
+        alert("nome não encontrado")
+    }
+     return("lista final: " + nomes)
+}
+alert(filtrarNomes());
