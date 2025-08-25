@@ -1,21 +1,32 @@
-function filtrarNomes(){
-    let nomes:string[]=[]
-    let nome:string
-    for(let i=0; i<4; i++){
-        nome=String(prompt('digite quatro nomes')!)
-        nomes.push(nome)
+function filtrarNomes() {
+    let nomes: string[] = [];
+    let nome: string;
+
+    // Pedindo os 4 nomes
+    for (let i = 0; i < 4; i++) {
+        nome = String(prompt('Digite um nome')!);
+        nomes.push(nome);
     }
-    let nomesComQuatroletras=nomes.filter(n=> n.length==4)
-    alert("nomes com quatro letras: " + nomesComQuatroletras);
-    let removerNome:string;
-    removerNome = String(prompt('digite o nome que deseja remover')!)
+
+    // Filtrando apenas nomes com 4 letras
+    let nomesComQuatroletras = nomes.filter(n => n.length == 4);
+
+    if (nomesComQuatroletras.length > 0) {
+        alert("Nomes com quatro letras: " + nomesComQuatroletras.join(", "));
+    }
+
+    // Remoção de um nome
+    let removerNome: string = String(prompt('Digite o nome que deseja remover')!);
     let indice = nomes.indexOf(removerNome);
-    if(indice != -1){
-        nomes.splice(indice,1)
-        alert("nome removido com sucesso")
-    } else{
-        alert("nome não encontrado")
+
+    if (indice != -1) {
+        nomes.splice(indice, 1);
+        alert("Nome removido com sucesso");
+    } else {
+        alert("Nome não encontrado");
     }
-     return("lista final: " + nomes)
+
+    return ("Lista final: " + nomes.join(", "));
 }
+
 alert(filtrarNomes());
